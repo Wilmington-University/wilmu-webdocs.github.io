@@ -1,8 +1,6 @@
 # WilmU SEO Documentation Website
 
-
-## SEO
-  ## Table of contents
+## Table of contents
 1. [Schema](#schema)
    1. [Structured data that Google supports](#supported)
     2. [Articles](#articles)
@@ -24,64 +22,46 @@
 2. [Another paragraph](#paragraph2)
 
 
-### <a name="schema"></a>
+## <a name="schema"></a>
 Schema documentation for Wilmington University's SEO projects. The wiki contains examples and related schema's associated with wilmu.edu web content.
 
-
-
-### <a name="supported"></a>Structured data that Google supports 
+## <a name="supported"></a>Structured data that Google supports 
 **This is a partial list that contains only data that benefits Wilmington University.**
 
-
-#### <a name="articles">Articles</a>
+### <a name="articles">Articles</a>
 [Reference](https://developers.google.com/search/docs/appearance/structured-data/article)
 
-#### <a name="breadcrumbs">Breadcrumbs</a>
+### <a name="breadcrumbs">Breadcrumbs</a>
 [Reference](https://developers.google.com/search/docs/appearance/structured-data/breadcrumb)
 
-#### <a name="carousel">Carousel</a>
+### <a name="carousel">Carousel</a>
 [Reference](https://developers.google.com/search/docs/appearance/structured-data/carousel)
 Rich results that display in a sequential list or gallery from a single site. This feature must be combined with one of the following features: Course. (e.g., multiple courses)
 
 
-#### <a name="course">Course</a>
+### <a name="course">Course</a>
 [Reference](https://developers.google.com/search/docs/appearance/structured-data/course)
 Educational courses that appear in a provider-specific list. Courses can include the course title, provider, and a short description.
 
-**<a name="parameters"></a>Required and Recommended Parameters**
+#### <a name="parameters"></a>Required and Recommended Parameters
 
-**![#ff0000]Required** All others are highly recommended
+**$${\color{red}Required}$$** All others are highly recommended
 
-| Parameter                 | Example Value                                                                                                                                 |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| @type                     | Course                                                                                                                                        |
-| url                       | Find course on [Smart Catalog](https://smartcatalog.co/en/Catalogs/Wilmington-University/Current/)                                            |
-| **![#ff0000]name**        | English Composition                                                                                                                           |
-| **![#ff0000]description** | This course will help students become more proficient and effective writers, while also developing reading comprehension and analysis skills. |
-| provider                  | @type: "Organization",                                                                                                                        |
-name: "Wilmington University",
-sameAs: "https://www.wilmu.edu" |
-| hasCourseInstance | @type: CourseInstance",                                                                                                              
-    "courseMode": [ 
-      "part-time",
-      "full-time",
-      "distance learning",
-      "MOOC",
-      "online"   |
-| endDate | 2022-03-21 |
-| startDate | 2023-02-15 |
+| Property                         | Type           | Example Value                                                                                                                                 |
+| -------------------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| Course                           |                |                                                                                                                                               |
+| url                              | URL            | Find course on [Smart Catalog](https://smartcatalog.co/en/Catalogs/Wilmington-University/Current/)                                            |
+| **$${\color{red}name}$$**        | Text           | English Composition                                                                                                                           |
+| **$${\color{red}description}$$** | Text           | This course will help students become more proficient and effective writers, while also developing reading comprehension and analysis skills. |
+| provider                         | Organization   |                                                                                                                                               |
+| name                             | Text           | Wilmington University                                                                                                                         |
+| sameAs                           | URL            | https://www.wilmu.edu                                                                                                                         |
+| hasCourseInstance                | CourseInstance |                                                                                                                                               |
+| courseMode                       | Text           | part-time, full-time, distance learning, MOOC, online                                                                                         |
+| endDate                          | Date           | 2022-03-21                                                                                                                                    |
+| startDate                        | Date           | 2023-02-15                                                                                                                                    |
 
-|              | Header 1        | Header 2                       || Header 3                       ||
-|              | Subheader 1     | Subheader 2.1  | Subheader 2.2  | Subheader 3.1  | Subheader 3.2  |
-|==============|-----------------|----------------|----------------|----------------|----------------|
-| Row Header 1 | 3row, 3col span                                 ||| Colspan only                   ||
-| Row Header 2 |       ^                                         ||| Rowspan only   | Cell           |
-| Row Header 3 |       ^                                         |||       ^        | Cell           |
-| Row Header 4 |  Row            |  Each cell     |:   Centered   :| Right-aligned :|: Left-aligned  |
-:              :  with multiple  :  has room for  :   multi-line   :    multi-line  :  multi-line    :
-:              :  lines.         :  more text.    :      text.     :         text.  :  text.         :
-|--------------|-----------------|----------------|----------------|----------------|----------------|
-[Caption Text]
+#### Example Code
 
 ```json
 <script type="application/ld+json">  
@@ -114,47 +94,47 @@ sameAs: "https://www.wilmu.edu" |
 }  
 </script> ```
 
-#### <a name="salary">Estimated Salary</a>
+### <a name="salary">Estimated Salary</a>
 [Resource](https://developers.google.com/search/docs/appearance/structured-data/estimated-salary)**
 Salary estimate information, such as salary ranges and region-based salary averages for job types, displayed in the job search experience on Google.
 
-#### <a name="event">Event</a>
+### <a name="event">Event</a>
 [Resource](https://developers.google.com/search/docs/appearance/structured-data/event)**
 An interactive rich result that shows a list of organized events, such as concerts or art festivals, that people may attend at a particular time and place.
 
-#### <a name="faq">FAQ</a>
+### <a name="faq">FAQ</a>
 [Resource](https://developers.google.com/search/docs/appearance/structured-data/faqpage)**
 A Frequently Asked Question (FAQ) page contains a list of questions and answers pertaining to a particular topic.
 
-#### <a name="howto">How-To</a>
+### <a name="howto">How-To</a>
 [Resource](https://developers.google.com/search/docs/appearance/structured-data/how-to)**
 A How-to walks users through a set of steps to successfully complete a task, featuring video, images, and text (e.g., video tutorials, register, etc.).
 
-#### <a name="learningvideo">Learning Video</a>
+### <a name="learningvideo">Learning Video</a>
 [Resource](https://developers.google.com/search/docs/appearance/structured-data/learning-video)**
 Help students and teachers discover and watch educational videos by adding Learning Video structured data to your educational videos.
 
-#### <a name="localbusiness">Local Business</a>
+### <a name="localbusiness">Local Business</a>
 [Resource](https://developers.google.com/search/docs/appearance/structured-data/local-business)**
 Business details displayed in the Google knowledge panel, including open hours, ratings, directions, and actions to book appointments or order items.
 
-#### <a name="logo">Logo</a>
+### <a name="logo">Logo</a>
 [Resource](https://developers.google.com/search/docs/appearance/structured-data/logo)**
 Your organization's logo in search results and Google knowledge panel.
 
-#### <a name="qa">Q&A</a>
+### <a name="qa">Q&A</a>
 [Resource](https://developers.google.com/search/docs/appearance/structured-data/qapage)**
 Q&A Pages are web pages that contain data in a question and answer format, which is one question followed by its answers.
 
-#### <a name="searchbox">Sitelinks Search box</a>
+### <a name="searchbox">Sitelinks Search box</a>
 [Resource](https://developers.google.com/search/docs/appearance/structured-data/sitelinks-searchbox)**
 A search box that is scoped to your website when it appears as a search result.
 
-#### <a name="speakable">Speakable</a>
+### <a name="speakable">Speakable</a>
 [Resource](https://developers.google.com/search/docs/appearance/structured-data/speakable)**
 ==TTS, read news stories??==
 
-#### <a name="video">Video</a>
+### <a name="video">Video</a>
 [Resource](https://developers.google.com/search/docs/appearance/structured-data/video)**
 Video information in search results, with the option to play the video, specify video segments, and live-stream content.
 
