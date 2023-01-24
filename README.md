@@ -39,9 +39,10 @@ Rich results that display in a sequential list or gallery from a single site. Th
 ### <a name="course">Course</a> - [Reference](https://developers.google.com/search/docs/appearance/structured-data/course)
 Educational courses that appear in a provider-specific list. Courses can include the course title, provider, and a short description.
 
- [Back to top](#top) #### <a name="parameters"></a>Required and Recommended Parameters
+ [Back to top](#top) 
+ #### <a name="parameters"></a>Required and Recommended Parameters
 
-**$${\color{red}Required}$$ in red.** All others are highly recommended
+**$${\color{red}Required in red.}$$** All others are highly recommended
 
 | Property                         | Type           | Example Value                                                                                                                                 |
 | -------------------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
