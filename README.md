@@ -4,32 +4,31 @@
 ## SEO
   ## Table of contents
 1. [Schema](#schema)
-2. [Structured data that Google supports](#supported)
-    1. [Articles](#articles)
-    2. [Breadcrumb](#breadcrumb)
-    3. [Carousel](#carousel)
-    4. [Course](#course)
+   1. [Structured data that Google supports](#supported)
+    2. [Articles](#articles)
+    3. [Breadcrumb](#breadcrumb)
+    4. [Carousel](#carousel)
+    5. [Course](#course)
        1. [Required and Recommended Parameters](#parameters)
-    5. [Estimated Salary](#salary)
-    6. [Event](#event)
-    7. [FAQ](#faq)
-    8. [How-To](#howto)
-    9.  [Learning Video](#learningvideo)
-    10. [Local Business](#localbusiness)
-    11. [Logo](#logo)
-    12. [Q&A](#qa)
-    13. [Sitelinks Search box](#searchbox)
-    14. [Speakable](#speakable)
-    15. [Video](#video)
-3. [Another paragraph](#paragraph2)
+    6. [Estimated Salary](#salary)
+    7. [Event](#event)
+    8. [FAQ](#faq)
+    9. [How-To](#howto)
+    10. [Learning Video](#learningvideo)
+    11. [Local Business](#localbusiness)
+    12. [Logo](#logo)
+    13. [Q&A](#qa)
+    14. [Sitelinks Search box](#searchbox)
+    15. [Speakable](#speakable)
+    16. [Video](#video)
+2. [Another paragraph](#paragraph2)
 
 
-### <a name="schema"></a>Schema
+### <a name="schema"></a>
 Schema documentation for Wilmington University's SEO projects. The wiki contains examples and related schema's associated with wilmu.edu web content.
 
 
 
-- 
 ### <a name="supported"></a>Structured data that Google supports 
 **This is a partial list that contains only data that benefits Wilmington University.**
 
@@ -51,26 +50,38 @@ Educational courses that appear in a provider-specific list. Courses can include
 
 **<a name="parameters"></a>Required and Recommended Parameters**
 
-**<font color="red">Required</font>** | <font color="red">Required</font> Normal: Highly Recommended
+**![#ff0000]Required** All others are highly recommended
 
-| Parameter         | Example Value                                                                                                                                 |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| @type             | Course                                                                                                                                        |
-| url               | Find course on [Smart Catalog](https://smartcatalog.co/en/Catalogs/Wilmington-University/Current/)                                            |
-| **name**          | English Composition I                                                                                                                         |
-| **description**   | This course will help students become more proficient and effective writers, while also developing reading comprehension and analysis skills. |
-| provider          | "@type": "Organization",<br />"name": "Wilmington University",<br />"sameAs": "https://www.wilmu.edu"                                         |
-| hasCourseInstance | "@type": "CourseInstance",<br />                                                                                                              |
-    "courseMode": [<br> 
-      "part-time",<br>
-      "full-time",<br>
-      "distance learning",<br>
-      "MOOC",<br>
+| Parameter                 | Example Value                                                                                                                                 |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| @type                     | Course                                                                                                                                        |
+| url                       | Find course on [Smart Catalog](https://smartcatalog.co/en/Catalogs/Wilmington-University/Current/)                                            |
+| **![#ff0000]name**        | English Composition                                                                                                                           |
+| **![#ff0000]description** | This course will help students become more proficient and effective writers, while also developing reading comprehension and analysis skills. |
+| provider                  | @type: "Organization",                                                                                                                        |
+name: "Wilmington University",
+sameAs: "https://www.wilmu.edu" |
+| hasCourseInstance | @type: CourseInstance",                                                                                                              
+    "courseMode": [ 
+      "part-time",
+      "full-time",
+      "distance learning",
+      "MOOC",
       "online"   |
 | endDate | 2022-03-21 |
 | startDate | 2023-02-15 |
 
-
+|              | Header 1        | Header 2                       || Header 3                       ||
+|              | Subheader 1     | Subheader 2.1  | Subheader 2.2  | Subheader 3.1  | Subheader 3.2  |
+|==============|-----------------|----------------|----------------|----------------|----------------|
+| Row Header 1 | 3row, 3col span                                 ||| Colspan only                   ||
+| Row Header 2 |       ^                                         ||| Rowspan only   | Cell           |
+| Row Header 3 |       ^                                         |||       ^        | Cell           |
+| Row Header 4 |  Row            |  Each cell     |:   Centered   :| Right-aligned :|: Left-aligned  |
+:              :  with multiple  :  has room for  :   multi-line   :    multi-line  :  multi-line    :
+:              :  lines.         :  more text.    :      text.     :         text.  :  text.         :
+|--------------|-----------------|----------------|----------------|----------------|----------------|
+[Caption Text]
 
 ```json
 <script type="application/ld+json">  
