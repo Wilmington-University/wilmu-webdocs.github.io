@@ -41,17 +41,17 @@ Schema documentation for Wilmington University's SEO projects. The wiki contains
 [Reference](https://developers.google.com/search/docs/appearance/structured-data/breadcrumb)
 
 #### <a name="carousel">Carousel</a>
-[Reference](https://developers.google.com/search/docs/appearance/structured-data/carousel)**
+[Reference](https://developers.google.com/search/docs/appearance/structured-data/carousel)
 Rich results that display in a sequential list or gallery from a single site. This feature must be combined with one of the following features: Course. (e.g., multiple courses)
 
 
 #### <a name="course">Course</a>
-[Resource](https://developers.google.com/search/docs/appearance/structured-data/course)**
+[Reference](https://developers.google.com/search/docs/appearance/structured-data/course)
 Educational courses that appear in a provider-specific list. Courses can include the course title, provider, and a short description.
 
 **<a name="parameters"></a>Required and Recommended Parameters**
 
-Bold: **Required** Normal: Highly Recommended
+**<font color="red">Required</font>** | <font color="red">Required</font> Normal: Highly Recommended
 
 | Parameter         | Example Value                                                                                                                                 |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -59,8 +59,8 @@ Bold: **Required** Normal: Highly Recommended
 | url               | Find course on [Smart Catalog](https://smartcatalog.co/en/Catalogs/Wilmington-University/Current/)                                            |
 | **name**          | English Composition I                                                                                                                         |
 | **description**   | This course will help students become more proficient and effective writers, while also developing reading comprehension and analysis skills. |
-| provider          | "@type": "Organization",<br>"name": "Wilmington University",<br>"sameAs": "https://www.wilmu.edu"                                             |
-| hasCourseInstance | "@type": "CourseInstance",<br>                                                                                                                |
+| provider          | "@type": "Organization",<br />"name": "Wilmington University",<br />"sameAs": "https://www.wilmu.edu"                                         |
+| hasCourseInstance | "@type": "CourseInstance",<br />                                                                                                              |
     "courseMode": [<br> 
       "part-time",<br>
       "full-time",<br>
