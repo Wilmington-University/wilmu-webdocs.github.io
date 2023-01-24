@@ -7,11 +7,12 @@
     3. [Breadcrumb](#breadcrumb)
     4. [Carousel](#carousel)
     5. [Course](#course)
-       1. [Required and Recommended Parameters](#parameters)
+       1. [Required and Recommended Parameters](#courseparameters)
     6. [Estimated Salary](#salary)
     7. [Event](#event)
+       1. [Required and Recommended Parameters](#eventparameters)
     8. [FAQ](#faq)
-    9. [How-To](#howto)
+    9.  [How-To](#howto)
     10. [Learning Video](#learningvideo)
     11. [Local Business](#localbusiness)
     12. [Logo](#logo)
@@ -40,23 +41,23 @@ Rich results that display in a sequential list or gallery from a single site. Th
 Educational courses that appear in a provider-specific list. Courses can include the course title, provider, and a short description.
 
  [Back to top](#top) 
- #### <a name="parameters"></a>Required and Recommended Parameters
+ #### <a name="courseparameters"></a>Required and Recommended Parameters
 
 **$${\color{red}Required in red.}$$** All others are highly recommended
 
-| Property                         | Type           | Example Value                                                                                                                                 |
-| -------------------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| Course                           |                |                                                                                                                                               |
-| url                              | URL            | Find course on [Smart Catalog](https://smartcatalog.co/en/Catalogs/Wilmington-University/Current/)                                            |
-| **$${\color{red}name}$$**        | Text           | English Composition                                                                                                                           |
-| **$${\color{red}description}$$** | Text           | This course will help students become more proficient and effective writers, while also developing reading comprehension and analysis skills. |
-| provider                         | Organization   |                                                                                                                                               |
-| name                             | Text           | Wilmington University                                                                                                                         |
-| sameAs                           | URL            | https://www.wilmu.edu                                                                                                                         |
-| hasCourseInstance                | CourseInstance |                                                                                                                                               |
-| courseMode                       | Text           | part-time, full-time, distance learning, MOOC, online                                                                                         |
-| endDate                          | Date           | 2022-03-21                                                                                                                                    |
-| startDate                        | Date           | 2023-02-15                                                                                                                                    |
+| Property          | Type           | Example Value                                                                                                                                 |
+| :---------------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
+| Course            |                |                                                                                                                                               |
+| url               | URL            | Find course on [Smart Catalog](https://smartcatalog.co/en/Catalogs/Wilmington-University/Current/)                                            |
+| name              | Text           | English Composition                                                                                                                           |
+| description       | Text           | This course will help students become more proficient and effective writers, while also developing reading comprehension and analysis skills. |
+| provider          | Organization   |                                                                                                                                               |
+| name              | Text           | Wilmington University                                                                                                                         |
+| sameAs            | URL            | https://www.wilmu.edu                                                                                                                         |
+| hasCourseInstance | CourseInstance |                                                                                                                                               |
+| courseMode        | Text           | part-time, full-time, distance learning, MOOC, online                                                                                         |
+| endDate           | Date           | 2022-03-21                                                                                                                                    |
+| startDate         | Date           | 2023-02-15                                                                                                                                    |
 
 #### Example Code
 
@@ -92,7 +93,82 @@ Educational courses that appear in a provider-specific list. Courses can include
 Salary estimate information, such as salary ranges and region-based salary averages for job types, displayed in the job search experience on Google.
 
 ### <a name="event">Event</a> - [Reference](https://developers.google.com/search/docs/appearance/structured-data/event)
-An interactive rich result that shows a list of organized events, such as concerts or art festivals, that people may attend at a particular time and place.
+An interactive rich result that shows a list of organized events, such as webinars or commencement, that people may attend at a particular time and place.
+
+**All events must follow:**
+  - eEvent is at a physical location **ONLY** and happens as scheduled. 
+  - Each event **MUST** have a unique URL. 
+  - Start and end dates **MUST** be added to multiple day events.
+  - Note: Currently, Google only supports pages that focus on a single event. We recommend adding markup to your event posting pages instead of pages that list schedules or multiple events. 
+ 
+#### <a name="standardevent"></a>Standard Event
+[Back to top](#top) 
+ #### <a name="eventparameters"></a>Required and Recommended Parameters
+
+| Property            | Type          | Example Value                                                                                                                                 |
+| :------------------ | ------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
+| Event               |               |                                                                                                                                               |
+| name                | Text          | Adjunct Faculty Workshop                                                                                                                      |
+| startDate           | Date          | 2022-09-05T9:00-05:00 (Delaware `startDate` value = GMT/UTC-5 standard time and GMT/UTC-4 daylight savings time)                              |
+| endDate             | Date          | 2022-09-05T9:00-06:00                                                                                                                         |
+| description         | Text          | This course will help students become more proficient and effective writers, while also developing reading comprehension and analysis skills. |
+| provider            | Organization  |                                                                                                                                               |
+| name                | Text          | Wilmington University                                                                                                                         |
+| sameAs              | URL           | https://www.wilmu.edu                                                                                                                         |
+|                     | presenter     | name                                                                                                                                          | Wil E Coyote                     |
+|                     | place         | name                                                                                                                                          | Wilmington University New Castle |
+| address             | PostalAddress |                                                                                                                                               |
+| streetAddress       |               | 320 N. DuPont Hwy                                                                                                                             |
+| addressLocality     |               | New Castle                                                                                                                                    |
+| postalCode          |               | 19720                                                                                                                                         |
+| addressRegion       |               | DE                                                                                                                                            |
+| addressCountry      |               | US                                                                                                                                            |
+| url                 | URL           | paste `https://events/wilmu.edu/{EVENTDATA}` from the events manager                                                                          |
+| eventAttendanceMode | Text          | ==When this property is omitted, event defaults to OfflineEventAttendanceMode meaning a physical location.==                                  |
+ 
+#### Example Code
+
+```json
+{  
+
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Adjunct Faculty Workshop",
+  "url" : "https://www.wilmu.edu/...",
+  "startDate": "2022-09-05T9:00-05:00",
+  "endDate": "2022-09-06T09:00-05:00",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": [{
+    "@type": "Place",
+    "name": "Wilmington University New Castle",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "320 N. DuPont Hwy",
+      "addressLocality": "New Castle",
+      "postalCode": "19720",
+      "addressRegion": "DE",
+      "addressCountry": "US"
+    }
+
+  }],
+  "image": [
+    "https://calendarmedia.blob.core.windows.net/assets/b8be3102-173e-4721-bd74-15f0109147a1-small.jpg"  
+
+  ],
+  "description": "This workshop will help adjunct faculty become more proficient and effective writers, while also developing reading comprehension and analysis skills.",
+  "organizer": {
+    "@type": "Organization",
+    "name": "Wilmington University",
+    "url": "https://www.wilmu.edu"
+  }, 
+  "performer": {
+    "@type": "Presenter",
+    "name": "Wil E Coyote"
+
+  }
+}  
+```
 
 ### <a name="faq">FAQ</a> - [Reference](https://developers.google.com/search/docs/appearance/structured-data/faqpage)**
 A Frequently Asked Question (FAQ) page contains a list of questions and answers pertaining to a particular topic.
