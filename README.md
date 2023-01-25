@@ -1,7 +1,8 @@
-# WilmU SEO Documentation Website
+# WilmU SEO Documentation
 <a name="top"></a>
 ## Table of contents
-- [WilmU SEO Documentation Website](#wilmu-seo-documentation-website)
+
+- [WilmU SEO Documentation](#wilmu-seo-documentation)
   - [Table of contents](#table-of-contents)
   - [](#)
   - [Structured data that Google supports](#structured-data-that-google-supports)
@@ -59,23 +60,18 @@ Schema documentation for Wilmington University's SEO projects. The wiki contains
 ### <a name="article">Article</a> - [Reference](https://developers.google.com/search/docs/appearance/structured-data/article)
 #### <a name="articleparameters"></a>Required and Recommended Parameters
 
-| Property      | Type         | Example Value                                                                                                                                 |
-| :------------ | :----------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
-|               | NewsArticle  |                                                                                                                                               |
-| url           | URL          | https://blog.wilmu.edu/news/2023/01/18/wilmington-university-president-dr-laverne-harmon-selected-for-prestigious-boards/                     |
-|               | ListItem     |                                                                                                                                               |
-| position      | Integer      | 1, 2, ...                                                                                                                                     |
-| item          | Thing        | Course                                                                                                                                        |
-| url           | URL          | Find course on [Smart Catalog](https://smartcatalog.co/en/Catalogs/Wilmington-University/Current/)                                            |
-| name          | Text         | English Composition I                                                                                                                         |
-| description   | Text         | This course will help students become more proficient and effective writers, while also developing reading comprehension and analysis skills. |
-| publisher     | Organization |                                                                                                                                               |
-| name          | Text         | Wilmington University                                                                                                                         |
-| logo          | ImageObject  |                                                                                                                                               |
-| url           | URL          | https://blog.wilmu.edu/news/wp-content/uploads/sites/28/2020/01/wilmu-logo-color-350x92.png                                                   |
-| headline      | Text         | Wilmington University President Dr. LaVerne Harmon Selected for Prestigious Boards                                                            |
-| image         | URL          | https://blog.wilmu.edu/news/wp-content/uploads/sites/28/2023/01/LTH-HS_22-23_1080x1080-1080x694.jpg                                           |
-| datePublished | Date         | 2023/01/18T3:13-05:00                                                                                                                         |
+| Property      | Type         | Example Value                                                                                                             |
+| :------------ | :----------- | :------------------------------------------------------------------------------------------------------------------------ |
+|               | NewsArticle  |                                                                                                                           |
+| url           | URL          | https://blog.wilmu.edu/news/2023/01/18/wilmington-university-president-dr-laverne-harmon-selected-for-prestigious-boards/ |
+| publisher     | Organization |                                                                                                                           |
+| name          | Text         | Wilmington University                                                                                                     |
+| logo          | ImageObject  |                                                                                                                           |
+| url           | URL          | https://blog.wilmu.edu/news/wp-content/uploads/sites/28/2020/01/wilmu-logo-color-350x92.png                               |
+| headline      | Text         | Wilmington University President Dr. LaVerne Harmon Selected for Prestigious Boards                                        |
+| image         | URL          | https://blog.wilmu.edu/news/wp-content/uploads/sites/28/2023/01/LTH-HS_22-23_1080x1080-1080x694.jpg                       |
+| datePublished | Date         | 2023/01/18T3:13-05:00                                                                                                     |
+
 #### Example Code
 
 ```json
@@ -98,6 +94,7 @@ Schema documentation for Wilmington University's SEO projects. The wiki contains
   "datePublished":"2023/01/18T3:13-05:00"
 }
 ```
+
 ### <a name="breadcrumbs">Breadcrumbs</a> - [Reference](https://developers.google.com/search/docs/appearance/structured-data/breadcrumb)
 
 ### <a name="carousel">Carousel</a> - [Reference](https://developers.google.com/search/docs/appearance/structured-data/carousel)
