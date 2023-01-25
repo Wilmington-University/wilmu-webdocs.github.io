@@ -4,6 +4,10 @@
 
 - [WilmU SEO Documentation](#wilmu-seo-documentation)
   - [Table of contents](#table-of-contents)
+  - [How to generate structured data](#how-to-generate-structured-data)
+  - [Use Google Tag Manager to generate JSON-LD dynamically](#use-google-tag-manager-to-generate-json-ld-dynamically)
+    - [Using variables in Google Tag Manager](#using-variables-in-google-tag-manager)
+      - [Create custom user-defined variables in Google Tag Manager](#create-custom-user-defined-variables-in-google-tag-manager)
   - [](#)
   - [Structured data that Google supports](#structured-data-that-google-supports)
     - [Article - Reference](#article---reference)
@@ -12,28 +16,28 @@
     - [Breadcrumbs - Reference](#breadcrumbs---reference)
     - [Carousel - Reference](#carousel---reference)
       - [Required and Recommended Parameters](#required-and-recommended-parameters-1)
-      - [Example Code](#example-code-1)
+      - [ Example Code](#-example-code)
     - [Course - Reference](#course---reference)
       - [Required and Recommended Parameters](#required-and-recommended-parameters-2)
     - [Degree/Certificates](#degreecertificates)
       - [Required and Recommended Parameters](#required-and-recommended-parameters-3)
-      - [Example Code](#example-code-2)
+      - [Example Code](#example-code-1)
     - [Educational Occupational Program](#educational-occupational-program)
       - [Required and Recommended Parameters](#required-and-recommended-parameters-4)
-      - [Example Code](#example-code-3)
+      - [Example Code](#example-code-2)
     - [Estimated Salary - Reference](#estimated-salary---reference)
     - [Event - Reference](#event---reference)
       - [Required and Recommended Parameters](#required-and-recommended-parameters-5)
-      - [Example Code](#example-code-4)
+      - [Example Code](#example-code-3)
     - [FAQ - Reference](#faq---reference)
       - [Required and Recommended Parameters](#required-and-recommended-parameters-6)
-      - [Example Code](#example-code-5)
+      - [Example Code](#example-code-4)
     - [How-To - Reference](#how-to---reference)
       - [Required and Recommended Parameters](#required-and-recommended-parameters-7)
-      - [Example Code](#example-code-6)
+      - [Example Code](#example-code-5)
     - [Learning Video - Reference](#learning-video---reference)
       - [Required and Recommended Parameters](#required-and-recommended-parameters-8)
-      - [Single Learning Video Example Code](#single-learning-video-example-code)
+      - [Example Code](#example-code-6)
     - [Local Business - Reference](#local-business---reference)
     - [Logo - Reference](#logo---reference)
     - [Person](#person)
@@ -45,16 +49,97 @@
       - [Example Code](#example-code-8)
     - [Speakable - Reference](#speakable---reference)
     - [Video - Reference](#video---reference)
-  - [How to generate structured data](#how-to-generate-structured-data)
-  - [Use Google Tag Manager to generate JSON-LD dynamically](#use-google-tag-manager-to-generate-json-ld-dynamically)
-    - [Using variables in Google Tag Manager](#using-variables-in-google-tag-manager)
-      - [Create custom user-defined variables in Google Tag Manager](#create-custom-user-defined-variables-in-google-tag-manager)
+ 
+
+## <a name="how-to-generate-structured-data"></a>How to generate structured data
+
+There are different ways to generate structured data with JavaScript, but the most common are:
+
+- [Google Tag Manager](https://developers.google.com/search/docs/appearance/structured-data/generate-structured-data-with-javascript#use-google-tag-manager)[^bignote]
+- [Merkle Schema Markup Generator](https://technicalseo.com/tools/schema-markup-generator/)
+- [editor.md](https://pandao.github.io/editor.md/en.html)
+- [Dillinger](https://dillinger.io/)
+- [Schemantra](https://schemantra.com/schema_list/)
+- MS Visual Code
+
+## <a name="use-google-tag-manager-to-generate-json-ld-dynamically"></a>Use Google Tag Manager to generate JSON-LD dynamically
+
+[^bignote]: To generate structured data with Google Tag Manager, follow these steps:
+
+  1.  [Sign in to Google Tag Manager](https://tagmanager.google.com/)
+  2.  Add a new **Custom HTML** tag to the container.
+  3.  Paste the desired structured data block into the tag content.
+  4.  Install the container as shown in the **Install Google Tag Manager** section of your container's admin menu.
+  5.  To add the tag to your website, publish your container in the Google Tag Manager interface.
+  6.  [Test your implementation](https://developers.google.com/search/docs/appearance/structured-data/generate-structured-data-with-javascript#testing).
+
+  ### <a name="using-variables-in-google-tag-manager"></a>Using variables in Google Tag Manager
+
+Google Tag Manager (GTM) supports [variables](https://support.google.com/tagmanager/topic/7683268?ref_topic=3441647) to use information on the page as part of your structured data. 
+Use variables to extract the structured data from the page instead of duplicating the information in GTM. 
+
+| Built-in variables                                                                                     | User-defined variables                                                                                                      |
+| ------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
+| For [web containers](https://support.google.com/tagmanager/answer/7182738?hl=en&ref_topic=7182737)     | For [web](https://support.google.com/tagmanager/answer/7683362?hl=en&ref_topic=9125128)                                     |
+| For [web containers](https://support.google.com/tagmanager/answer/7182738?hl=en&ref_topic=7182737)     | For [mobile](https://support.google.com/tagmanager/answer/7683157?hl=en&ref_topic=9125128)                                  |
+| For [iOS containers](https://support.google.com/tagmanager/answer/7182836?hl=en&ref_topic=7182737)     | [Format values in user-defined web variables](https://support.google.com/tagmanager/answer/9121006?hl=en&ref_topic=9125128) |
+| For [Android containers](https://support.google.com/tagmanager/answer/7182414?hl=en&ref_topic=7182737) |                                                                                                                             |
 
 
+#### <a name="create-custom-user-defined-variables-in-google-tag-manager"></a>Create custom user-defined variables in Google Tag Manager
+Create custom user-defined variables in Google Tag Manager to suit specific requirements that might not already be covered by [built-in variables](https://support.google.com/tagmanager/topic/7182737).
+To create a new user-defined variable:
+1.  In the left navigation, click **Variables**.
+2.  In the User-Defined Variables section, click **New**.
+3.  Click **Variable Configuration** and select the desired variable type. 
+4.  Complete the options for the selected variable type.
+5.  Name the variable. Use a naming scheme that is descriptive of the variable's function, e.g. "_Data Layer Variable - Product Name_."
+6.  Click **Save**.
+
+For example, if you create a variable called `course_name`, you can dynamically create a **Course** block that uses the page title as the course name.
+
+```javascript
+function()  {  return document.title;  }
+```
+
+You can then use `{{course_name}}` in your custom tag HTML.
+
+**We recommend to create variables to collect all the necessary information from the page using variables.**
+
+Here is an example for the custom HTML tag content:
+Assumes that you defined the variables recipe_name, recipe_image and recipe_author in GTM.
+```json
+
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "url": "http://smartcatalog.co/en/Catalogs/Wilmington-University/Current/Undergraduate-Catalog/Courses/ENG-English/100/ENG-121",
+
+  "name": "{{course_name}}",
+  "description": "{{course_desc}}",
+  "provider": {
+    "@type": "Organization",
+    "name": "Wilmington University",
+    "sameAs": "https://www.wilmu.edu"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": [
+      "part-time",
+      "full-time",
+      "distance learning",
+      "MOOC",
+      "online"    
+    ],
+    "endDate": "2022-03-21",
+    "startDate": "2023-02-15"
+  }
+}
+```
 ## <a name="schema"></a>
 Schema documentation for Wilmington University's SEO projects. The wiki contains examples and related schema's associated with wilmu.edu web content.
 
-## <a name="supported"></a>Structured data that Google supports 
+## <a name="structured-data-that-google-supports"></a>Structured data that Google supports 
 **This is a partial list that contains only data that benefits Wilmington University.**
 
 ### <a name="article">Article</a> - [Reference](https://developers.google.com/search/docs/appearance/structured-data/article)
@@ -72,7 +157,7 @@ Schema documentation for Wilmington University's SEO projects. The wiki contains
 | image         | URL          | https://blog.wilmu.edu/news/wp-content/uploads/sites/28/2023/01/LTH-HS_22-23_1080x1080-1080x694.jpg                       |
 | datePublished | Date         | 2023/01/18T3:13-05:00                                                                                                     |
 
-#### Example Code
+#### <a name="articleexample"></a>Example Code
 
 ```json
 {
@@ -116,7 +201,7 @@ Rich results that display in a sequential list or gallery from a single site. Th
 | name            | Text                  | Wilmington University                                                                                                                         |
 | sameAs          | URL                   | https://www.wilmu.edu                                                                                                                         |
 
-#### Example Code
+#### <a name="carouselexample"></a> Example Code
 
 ```json
 {
@@ -161,7 +246,6 @@ Rich results that display in a sequential list or gallery from a single site. Th
 ### <a name="course">Course</a> - [Reference](https://developers.google.com/search/docs/appearance/structured-data/course)
 Educational courses that appear in a provider-specific list. Courses can include the course title, provider, and a short description.
 
- [Back to top](#top) 
  #### <a name="courseparameters"></a>Required and Recommended Parameters
 
 | Property          | Type           | Example Value                                                                                                                                 |
@@ -210,7 +294,7 @@ Educational courses that appear in a provider-specific list. Courses can include
 | name                         | Text                                         | Lawyers                                                                                                            |
 | url                          | URL                                          | https://www.onetonline.org/link/summary/23-1011.00                                                                 |
 
-#### Example Code
+#### <a name="degreeexample"></a>Example Code
 
 ```json
 {
@@ -291,7 +375,7 @@ Educational courses that appear in a provider-specific list. Courses can include
 | price                        | Number, Text                                               | 37344                                                            |
 | priceCurrency                | Text                                                       | USD                                                              |
 
-#### Example Code
+#### <a name="eopexample"></a>Example Code
 
 ```json
 {
@@ -378,9 +462,9 @@ An interactive rich result that shows a list of organized events, such as webina
 | addressRegion       |               | DE                                                                                                                                            |
 | addressCountry      |               | US                                                                                                                                            |
 | url                 | URL           | paste `https://events/wilmu.edu/{EVENTDATA}` from the events manager                                                                          |
-| eventAttendanceMode | Text          | ==When this property is omitted, event defaults to OfflineEventAttendanceMode meaning a physical location.==                                  |
+| eventAttendanceMode | Text          | <mark>When this property is omitted, event defaults to OfflineEventAttendanceMode meaning a physical location.</mark>                         |
 
-#### Example Code
+#### <a name="eventexample"></a>Example Code
 
 ```json
 {
@@ -433,7 +517,7 @@ A Frequently Asked Question (FAQ) page contains a list of questions and answers 
 | Question | Text    | What is the last day to add/drop a class?                                                                                                                                                                 |
 | Answer   | Text    | <p>Please refer to the <a href="https://www.wilmu.edu/registrar/changeschedule.aspx">Changing Your Course Schedule page</a> for a full list of drop/add and withdrawal deadlines in the current term.</p> |
 
-#### Example Code
+#### <a name="faqexample"></a>Example Code
 
 ```json
 {
@@ -461,7 +545,7 @@ A Frequently Asked Question (FAQ) page contains a list of questions and answers 
 ```
 
 ### <a name="howto">How-To</a> - [Reference](https://developers.google.com/search/docs/appearance/structured-data/how-to)
-A How-to walks users through a set of steps to successfully complete a task, featuring video, images, and text ==(e.g., video tutorials, register, etc.)==.
+A How-to walks users through a set of steps to successfully complete a task, featuring video, images, and text <mark>(e.g., video tutorials, register, etc.)</mark>.
 
 #### <a name="howtoparameters"></a>Required and Recommended Parameters
 
@@ -485,28 +569,28 @@ A How-to walks users through a set of steps to successfully complete a task, fea
 |position|Integer|1|
 |name|Text|Learn About Course Schedules and Formats|
 |url|URL|https://cdnapisec.kaltura.com/p/1582871/sp/158287100/embedIframeJs/uiconf_id/ 24054851/partner_id/1582871?iframeembed=true&playerId=kaltura_player&entry_id=1_h3ie83eq&flashvars[localizationCode]=en&flashvars[Kaltura.addCrossoriginToIframe]=true&&wid=1_hcq249h2|
-|description|Text|Video owner will provide.|
+|description|Text|<mark>Video owner will provide.</mark>|
 |uploadDate|Date|2022-03-31T08:00-05:00|
 |duration|ISO-8601|PT2M21S|
-|contentUrl|URL|How do we get this URL?|
+|contentUrl|URL|<mark>How do we get this URL?</mark>|
 
 ||VideoObject||
 |position|Integer|2|
 |name|Text|Scheduling Your WilmU Courses|
 |url|URL|https://cdnapisec.kaltura.com/p/1582871/sp/158287100/embedIframeJs/uiconf_id/ 24054851/partner_id/1582871?iframeembed=true&playerId=kaltura_player&entry_id=1_8umwnacl&flashvars[localizationCode]=en&flashvars[Kaltura.addCrossoriginToIframe]=true&&wid=1_xv0awa49|
-|description|Text|Video owner will provide.|
+|description|Text|<mark>Video owner will provide.|
 |uploadDate|Date|2022-03-31T08:00-05:00|
 |duration|ISO-8601|PT1M33S|
-|contentUrl|URL|How do we get this URL?|
+|contentUrl|URL|<mark>How do we get this URL?</mark>|
 
 ||VideoObject||
 |position|Integer|3|
 |name|Text|Scheduling Do’s and Don’ts|
 |url|URL|https://cdnapisec.kaltura.com/p/1582871/sp/158287100/embedIframeJs/uiconf_id/ 24054851/partner_id/1582871?iframeembed=true&playerId=kaltura_player&entry_id=1_okrt94cv&flashvars[localizationCode]=en&flashvars[Kaltura.addCrossoriginToIframe]=true&&wid=1_i8oxbk6i|
-|description|Text|Video owner will provide.|
+|description|Text|<mark>Video owner will provide.</mark>|
 |uploadDate|Date|2022-03-31T08:00-05:00|
 |duration|ISO-8601|PT1M03S|
-|contentUrl|URL|How do we get this URL?|
+|contentUrl|URL|<mark>How do we get this URL?</mark>|
 
 ||HowToStep||
 |name|Text|Know Your Responsibilities|
@@ -520,7 +604,7 @@ A How-to walks users through a set of steps to successfully complete a task, fea
 |url|URL|https://www.wilmu.edu/advising/prepare-for-advising-appointment.aspx"|
 |position|Integer|4|
 
-#### Example Code
+#### <a name="howtoexample"></a>Example Code
 
 ```json
 {
@@ -637,7 +721,7 @@ Only one of these nonacademic values may be specified as educationalLevel.
     Intermediate: Some knowledge might be needed to understand the content
     Advanced: This content is targeted towards advanced learners that have prior knowledge in the topic
 
-#### Single Learning Video Example Code
+#### <a name="learningvideoexample"></a>Example Code
 
 ```json
 {
@@ -675,7 +759,7 @@ Your organization's logo in search results and Google knowledge panel.
 | email     | Text             | mailto:jane-doe@wilmu.edu               |
 | image     | ImageObject, URL | https://www.wilmu.edu/images/person.png |
 | url       | URL              | https://www.wilmu.edu/dept/             |
-#### Example Code
+#### <a name="personexample"></a>Example Code
 
 ```json
 {
@@ -694,7 +778,7 @@ Your organization's logo in search results and Google knowledge panel.
 Q&A Pages are web pages that contain data in a question and answer format, which is one question followed by its answers.
 ### <a name="searchbox">Sitelinks Search box</a> - [Reference](https://developers.google.com/search/docs/appearance/structured-data/sitelinks-searchbox)
 A search box that is scoped to your website when it appears as a search result.
-#### <a name="searchparameters"></a>Required and Recommended Parameters
+#### <a name="searchboxparameters"></a>Required and Recommended Parameters
 
 | Property        | Type            | Example Value                                                         |
 | :-------------- | :-------------- | :-------------------------------------------------------------------- |
@@ -703,7 +787,7 @@ A search box that is scoped to your website when it appears as a search result.
 | urlTemplate     | Text            | https://www.wilmu.edu/gcse-search-results.aspx?q={search_term_string} |
 | query-input     | Duration        | required name=search_term_string                                      |
 
-#### Example Code
+#### <a name="searchboxexample"></a>Example Code
 
 ```json
 {
@@ -728,88 +812,3 @@ Video information in search results, with the option to play the video, specify 
 
  [Back to top](#top) 
 
-## How to generate structured data
-
-There are different ways to generate structured data with JavaScript, but the most common are:
-
-- [Google Tag Manager](https://developers.google.com/search/docs/appearance/structured-data/generate-structured-data-with-javascript#use-google-tag-manager)[^bignote]
-- [Merkle Schema Markup Generator](https://technicalseo.com/tools/schema-markup-generator/)
-- [editor.md](https://pandao.github.io/editor.md/en.html)
-- [Dillinger](https://dillinger.io/)
-- [Schemantra](https://schemantra.com/schema_list/)
-- MS Visual Code
-
-## Use Google Tag Manager to generate JSON-LD dynamically
-
-[^bignote]: To generate structured data with Google Tag Manager, follow these steps:
-
-  1.  [Sign in to Google Tag Manager](https://tagmanager.google.com/)
-  2.  Add a new **Custom HTML** tag to the container.
-  3.  Paste the desired structured data block into the tag content.
-  4.  Install the container as shown in the **Install Google Tag Manager** section of your container's admin menu.
-  5.  To add the tag to your website, publish your container in the Google Tag Manager interface.
-  6.  [Test your implementation](https://developers.google.com/search/docs/appearance/structured-data/generate-structured-data-with-javascript#testing).
-
-### Using variables in Google Tag Manager
-
-Google Tag Manager (GTM) supports [variables](https://support.google.com/tagmanager/topic/7683268?ref_topic=3441647) to use information on the page as part of your structured data. 
-Use variables to extract the structured data from the page instead of duplicating the information in GTM. 
-
-| Built-in variables                                                                                     | User-defined variables                                                                                                      |
-| ------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
-| For [web containers](https://support.google.com/tagmanager/answer/7182738?hl=en&ref_topic=7182737)     | For [web](https://support.google.com/tagmanager/answer/7683362?hl=en&ref_topic=9125128)                                     |
-| For [web containers](https://support.google.com/tagmanager/answer/7182738?hl=en&ref_topic=7182737)     | For [mobile](https://support.google.com/tagmanager/answer/7683157?hl=en&ref_topic=9125128)                                  |
-| For [iOS containers](https://support.google.com/tagmanager/answer/7182836?hl=en&ref_topic=7182737)     | [Format values in user-defined web variables](https://support.google.com/tagmanager/answer/9121006?hl=en&ref_topic=9125128) |
-| For [Android containers](https://support.google.com/tagmanager/answer/7182414?hl=en&ref_topic=7182737) |                                                                                                                             |
-
-
-#### Create custom user-defined variables in Google Tag Manager
-Create custom user-defined variables in Google Tag Manager to suit specific requirements that might not already be covered by [built-in variables](https://support.google.com/tagmanager/topic/7182737).
-To create a new user-defined variable:
-1.  In the left navigation, click **Variables**.
-2.  In the User-Defined Variables section, click **New**.
-3.  Click **Variable Configuration** and select the desired variable type. 
-4.  Complete the options for the selected variable type.
-5.  Name the variable. Use a naming scheme that is descriptive of the variable's function, e.g. "_Data Layer Variable - Product Name_."
-6.  Click **Save**.
-
-For example, if you create a variable called `course_name`, you can dynamically create a **Course** block that uses the page title as the course name.
-
-```javascript
-function()  {  return document.title;  }
-```
-
-You can then use `{{course_name}}` in your custom tag HTML.
-
-**We recommend to create variables to collect all the necessary information from the page using variables.**
-
-Here is an example for the custom HTML tag content:
-Assumes that you defined the variables recipe_name, recipe_image and recipe_author in GTM.
-```json
-
-{
-  "@context": "https://schema.org",
-  "@type": "Course",
-  "url": "http://smartcatalog.co/en/Catalogs/Wilmington-University/Current/Undergraduate-Catalog/Courses/ENG-English/100/ENG-121",
-
-  "name": "{{course_name}}",
-  "description": "{{course_desc}}",
-  "provider": {
-    "@type": "Organization",
-    "name": "Wilmington University",
-    "sameAs": "https://www.wilmu.edu"
-  },
-  "hasCourseInstance": {
-    "@type": "CourseInstance",
-    "courseMode": [
-      "part-time",
-      "full-time",
-      "distance learning",
-      "MOOC",
-      "online"    
-    ],
-    "endDate": "2022-03-21",
-    "startDate": "2023-02-15"
-  }
-}
-```
