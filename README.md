@@ -62,31 +62,31 @@ Educational courses that appear in a provider-specific list. Courses can include
 #### Example Code
 
 ```json
-{  
+{
   "@context": "https://schema.org",
-  "@type": "Course", 
+  "@type": "Course",
   "url": "http://smartcatalog.co/en/Catalogs/Wilmington-University/Current/Undergraduate-Catalog/Courses/ENG-English/100/ENG-121",  
 
   "name": "English Composition I",
   "description": "This course will help students become more proficient and effective writers, while also developing reading comprehension and analysis skills.", 
-  "provider": { 
-    "@type": "Organization", 
+  "provider": {
+    "@type": "Organization",
     "name": "Wilmington University",
     "sameAs": "https://www.wilmu.edu"
   },
-  "hasCourseInstance": { 
+  "hasCourseInstance": {
     "@type": "CourseInstance",
     "courseMode": [
       "part-time",
-      "full-time", 
+      "full-time",
       "distance learning",
-      "MOOC", 
-      "online"     
-    ],  
-    "endDate": "2022-03-21",  
-    "startDate": "2023-02-15"  
-  }  
-}  
+      "MOOC",
+      "online"   
+    ],
+    "endDate": "2022-03-21",
+    "startDate": "2023-02-15"
+  }
+}
 ```
  [Back to top](#top) 
 ### <a name="salary">Estimated Salary</a> - [Reference](https://developers.google.com/search/docs/appearance/structured-data/estimated-salary)
@@ -101,9 +101,7 @@ An interactive rich result that shows a list of organized events, such as webina
   - Start and end dates **MUST** be added to multiple day events.
   - Note: Currently, Google only supports pages that focus on a single event. We recommend adding markup to your event posting pages instead of pages that list schedules or multiple events. 
  
-#### <a name="standardevent"></a>Standard Event
-[Back to top](#top) 
- #### <a name="eventparameters"></a>Required and Recommended Parameters
+#### <a name="eventparameters"></a>Required and Recommended Parameters
 
 | Property            | Type          | Example Value                                                                                                                                 |
 | :------------------ | ------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -115,8 +113,9 @@ An interactive rich result that shows a list of organized events, such as webina
 | provider            | Organization  |                                                                                                                                               |
 | name                | Text          | Wilmington University                                                                                                                         |
 | sameAs              | URL           | https://www.wilmu.edu                                                                                                                         |
-|                     | presenter     | name                                                                                                                                          | Wil E Coyote                     |
-|                     | place         | name                                                                                                                                          | Wilmington University New Castle |
+| presenter           | name          | Wil E Coyote                                                                                                                                  |
+| place               | name          | Wilmington University New Castle                                                                                                              |
+| VirtualLocation     | URL           | https://events.wilmu.edu/site/facultyandstaff/event/move-it-with-melissa--low-impact-cardio--stretch---webinar-75/                            |
 | address             | PostalAddress |                                                                                                                                               |
 | streetAddress       |               | 320 N. DuPont Hwy                                                                                                                             |
 | addressLocality     |               | New Castle                                                                                                                                    |
@@ -124,13 +123,12 @@ An interactive rich result that shows a list of organized events, such as webina
 | addressRegion       |               | DE                                                                                                                                            |
 | addressCountry      |               | US                                                                                                                                            |
 | url                 | URL           | paste `https://events/wilmu.edu/{EVENTDATA}` from the events manager                                                                          |
-| eventAttendanceMode | Text          | ==When this property is omitted, event defaults to OfflineEventAttendanceMode meaning a physical location.==                                  |
+| eventAttendanceMode | Text          | >mark>When this property is omitted, event defaults to OfflineEventAttendanceMode meaning a physical location.</mark>                         |
  
 #### Example Code
 
 ```json
-{  
-
+{
   "@context": "https://schema.org",
   "@type": "Event",
   "name": "Adjunct Faculty Workshop",
@@ -161,20 +159,59 @@ An interactive rich result that shows a list of organized events, such as webina
     "@type": "Organization",
     "name": "Wilmington University",
     "url": "https://www.wilmu.edu"
-  }, 
+  },
   "performer": {
     "@type": "Presenter",
     "name": "Wil E Coyote"
 
   }
-}  
+}
 ```
 
-### <a name="faq">FAQ</a> - [Reference](https://developers.google.com/search/docs/appearance/structured-data/faqpage)**
+### <a name="faq">FAQ</a> - [Reference](https://developers.google.com/search/docs/appearance/structured-data/faqpage)
 A Frequently Asked Question (FAQ) page contains a list of questions and answers pertaining to a particular topic.
+**All FAQS must:**
+  - Have a question and answer.
+ 
+#### <a name="faqparameters"></a>Required and Recommended Parameters
+
+| Property | Type | Example Value                                                                                                                                                                                         |
+| :------- | ---- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| FAQPage  |      |                                                                                                                                                                                                       |
+| Question | Text | What is the last day to add/drop a class?                                                                                                                                                             |
+| Answer   | Text | <p>Please refer to the <a href="https://www.wilmu.edu/registrar/changeschedule.aspx">Changing Your Course Schedule page</a> for a full list of drop/add and withdrawal deadlines in the current term. |
+
+</p> |
+ 
+#### Example Code
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the last day to add/drop a class?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Please refer to the <a href="https://www.wilmu.edu/registrar/changeschedule.aspx">Changing Your Course Schedule page</a> for a full list of drop/add and withdrawal deadlines in the current term.</p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to process a refund?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We will reimburse you for returned items in the same way you paid for them. For example, any amounts deducted from a gift card will be credited back to a gift card. For returns by mail, once we receive your return, we will process it within 4–5 business days. It may take up to 7 days after we process the return to reflect in your account, depending on your financial institution's processing time."
+      }
+    }
+   ]
+}
+```
 
 ### <a name="howto">How-To</a> - [Reference](https://developers.google.com/search/docs/appearance/structured-data/how-to)
-A How-to walks users through a set of steps to successfully complete a task, featuring video, images, and text ==(e.g., video tutorials, register, etc.)==.
+A How-to walks users through a set of steps to successfully complete a task, featuring video, images, and text <mark>e.g., video tutorials, register, etc.)</mark>.
 ### <a name="learningvideo">Learning Video</a> - [Reference](https://developers.google.com/search/docs/appearance/structured-data/learning-video)
 Help students and teachers discover and watch educational videos by adding Learning Video structured data to your educational videos.
 ### <a name="localbusiness">Local Business</a> - [Reference](https://developers.google.com/search/docs/appearance/structured-data/local-business)
@@ -186,8 +223,8 @@ Q&A Pages are web pages that contain data in a question and answer format, which
 ### <a name="searchbox">Sitelinks Search box</a> - [Reference](https://developers.google.com/search/docs/appearance/structured-data/sitelinks-searchbox)
 A search box that is scoped to your website when it appears as a search result.
 
-### <a name="speakable">Speakable</a> - [Reference](https://developers.google.com/search/docs/appearance/structured-data/speakable)**
-==TTS, read news stories??==
+### <a name="speakable">Speakable</a> - [Reference](https://developers.google.com/search/docs/appearance/structured-data/speakable)
+<mark>TTS, read news stories??</mark>
 
 ### <a name="video">Video</a> - [Reference](https://developers.google.com/search/docs/appearance/structured-data/video)
 Video information in search results, with the option to play the video, specify video segments, and live-stream content.
